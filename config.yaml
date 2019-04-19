@@ -1,0 +1,17 @@
+baseUR: "http://example.org/"
+languageCode: "en-us"
+title: "My New Hugo Site"
+
+outputs:
+  home:
+    - html
+    - that
+  page:
+    - html
+    - that
+
+outputFormats:
+  that:
+    baseName: that
+    mediatype: text/html
+    isHTML: true

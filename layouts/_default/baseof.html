@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ .Site.Params.title }}</title>
+  </head>
+  <body>
+    <div class="">
+      {{ range .OutputFormats }}
+          - Name: {{ .Name }} <br>
+            Permalink: {{ .Permalink }} <br>
+      {{ end }}
+
+    </div>
+
+    <nav>
+      Regular Pages:
+      <ul>
+        {{ range .Site.RegularPages }}
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+      </ul>
+    </nav>
+
+    {{ block "main" . }}
+
+    {{ end }}
+  </body>
+</html>
