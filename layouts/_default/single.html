@@ -1,3 +1,21 @@
 {{ define "main" }}
   Single {{ .Title }}
+
+  {{ with .Resources.ByType "page" }}
+    It's a bundle with page Resource
+    {{ printf "%#v" . }}
+    <ul>
+      {{ range . }}
+        <li>
+          {{ $title := .Title }}
+          {{ with .Permalink }}
+            <a href="{{ . }}">{{ $title }}</a>
+          {{ else }}
+            <span>{{ $title }}</span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
 {{ end }}
